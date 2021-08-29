@@ -1,7 +1,6 @@
 import React from 'react'
 import '../../../Style/Components/Search.css'
 
-import SearchIcon from '@material-ui/core/Icon';
 import search from '../../../Style/icons/search36.png'
 
 function Search() {
