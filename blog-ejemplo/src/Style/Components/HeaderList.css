@@ -1,0 +1,10 @@
+.list{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 13px;
+    list-style: none;
+    font-size: 19px;
+}
+.header-list{ 
+    border-bottom: 1px solid rgb(241, 234, 234)
+}
