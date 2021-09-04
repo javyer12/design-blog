@@ -2,8 +2,10 @@ import React from 'react'
 import '../../../Style/Components/Search.css'
 
 import search from '../../../Style/icons/search36.png'
+import Personajes from '../personajes/Personajes';
 
 function Search() {
+   
     return(
         <>
          <div className="search-area">

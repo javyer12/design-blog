@@ -10,8 +10,10 @@ h2{
      color: white
 }
 
-.header button { 
-     margin: 5px 0 10px 350px;
+.btn_dark-light { 
+     margin: auto;
+     margin-top: 10px;
+     width: 70%;
      height: 30px;
 }
 
