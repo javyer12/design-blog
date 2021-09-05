@@ -1,24 +1,25 @@
 import React from 'react'
 import '../../../Style/Components/Search.css'
 
-import search from '../../../Style/icons/search36.png'
-import Personajes from '../personajes/Personajes';
+import searcher from '../../../Style/icons/search36.png'
 
-function Search() {
+const Search =  (search, searchInput, handleSearch) =>{
    
     return(
         <>
          <div className="search-area">
             <input 
-            className="search"
-            type='text'
-            label='Search'
-            placeholder = 'Search....'
+                className="search"
+                type='text'
+                // value = {search}
+                // ref = {searchInput}
+                // onChange = {handleSearch}
+                placeholder = 'Search....'
             />
             <img 
-            className="search-icon"
-             src={search}
-             alt='icon de buscar'/>
+                className="search-icon"
+                src={searcher}
+                alt='icon de buscar'/>
 
          </div>
         </>

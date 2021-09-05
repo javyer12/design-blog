@@ -1,9 +1,9 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import '../../../Style/Components/Header.css'
 
 import ThemeContext from '../../Context/ThemeContext';
 
-import Search from './Search'
+// import Search from './Search'
 
 
 const Header = () => {
@@ -14,7 +14,7 @@ const Header = () => {
     return (
         <>
          <div className="header">
-            <Search/>
+            {/* <Search /> */}
             
             <h2 style={{color}}>Log in</h2>
            
