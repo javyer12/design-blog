@@ -1,9 +1,12 @@
-import React, { useState, useEffect,useReducer, useMemo, useRef, useCallback} from 'react';
+import React, { useState,useReducer, useMemo, useRef, useCallback} from 'react';
 // import Search from '../Header/Search';
+import  useCharacter from '../featured/hooks/useCharacter'
 
 const initialState = {
     favorites: []
 }
+
+const  API  =  'https://rickandmortyapi.com/api/character/'
 
 const favoriteReducer = (state, action) => {
 
@@ -17,18 +20,14 @@ const favoriteReducer = (state, action) => {
             return state;
     }
 }
-const Personajes = () => {
+const Personajes  =  () =>  {
 
-    const [ personajes, setPersonajes] = useState([])
-    const [favorites, dispatch] = useReducer(favoriteReducer, initialState);
-    const [search, setSearch] = useState('');
-    const searchInput = useRef(null);
+    const  [ favorites, dispatch ] = useReducer( favoriteReducer, initialState );
+    const  [ search, setSearch ] = useState('');
+    const  searchInput = useRef( null );
 
-    useEffect(() => {
-        fetch('https://rickandmortyapi.com/api/character/')
-        .then( response => response.json())
-        .then(data => setPersonajes(data.results))
-    }, [])
+
+    const personajes = useCharacter( API )
 
     const handleClick = favorite => {
             dispatch( { type: 'ADD_TO_FAVORITE', payload: favorite })
@@ -58,37 +57,37 @@ const Personajes = () => {
 
 
    
-    return (
+ return (
         <>
         <div className = 'personajes'>
 
             <h1>Tus favoritos son: </h1>
-            { favorites.favorites.map(favorite => (
-                <ul key = {favorite.id}>
-                    {favorite.name}
-                </ul>
+                { favorites.favorites.map(favorite => (
+                    <ul key = {favorite.id}>
+                        {favorite.name}
+                    </ul>
             ))}
 
             <div className = 'search' style = {{marginBottom: '5%'}}>
                 <p> Busca tus personajes </p>
-                <input 
-                type = "text" 
-                value = {search}  
-                onChange={handleSearch}
-                ref = {searchInput}
-                />
+                    <input 
+                        type = "text" 
+                        value = {search}  
+                        onChange={handleSearch}
+                        ref = {searchInput}
+                    />
             </div>
 
                 {/* <Search search={search} searchInput={searchInput} handleSearch={handleSearch1}/> */}
         
             <h3 style={{textAlign:'left'}, {marginRight:'85%'}}>Personajes de Rick and Morty: </h3>
 
-            {filteredUsers.map(personaje => (
+            { filteredUsers.map(personaje => (
                 <div className = 'item' key={personaje.id} style={{textAlign:'left'}, {marginRight:'80%'}}> 
-                <h4>{personaje.name}</h4>
-                <button type='button' onClick = {() => handleClick(personaje)}>
-                    Agregar a favorito
-                </button>
+                    <h4>{personaje.name}</h4>
+                    <button type='button' onClick = {() => handleClick(personaje)}>
+                        Agregar a favorito
+                    </button>
                 </div>
             ))}
            
